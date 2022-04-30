@@ -2,14 +2,12 @@ const mongoose = require('mongoose');
 
 const checkInSchema = new mongoose.Schema(
   {
-    shopId: {
-      type: String,
-      trim: true,
+    shopData: {
+      type: Object,
       required: true,
     },
-    email: {
-      type: String,
-      trim: true,
+    userData: {
+      type: Object,
       required: true,
     },
     checkInTime: {

@@ -90,7 +90,8 @@ module.exports.Login = (req, res) => {
         });
         res.status(200).json({
           status: true,
-          message: 'User successfully logged in',
+          message: `${req.body.email} successfully logged in`,
+          email: req.body.email,
           access_token: token,
           expiresIn: expiry,
         });

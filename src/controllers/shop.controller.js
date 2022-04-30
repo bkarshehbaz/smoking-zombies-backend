@@ -18,7 +18,7 @@ function getShopDataFromDB(res) {
   });
 }
 
-module.exports.getAllShopsData = (req, res) => {
+module.exports.getAllShopsData = async (req, res) => {
   getShopDataFromDB(res);
 };
 
@@ -40,7 +40,7 @@ function createOneShop(req, res) {
   });
 }
 
-module.exports.createOneShop = (req, res) => {
+module.exports.createOneShop = async (req, res) => {
   createOneShop(req, res);
 };
 
@@ -79,6 +79,6 @@ async function fetchShopData(res) {
   }
 }
 
-module.exports.getAllShopDataViaThirdPartyAPI = (req, res) => {
+module.exports.getAllShopDataViaThirdPartyAPI = async (req, res) => {
   fetchShopData(res);
 };
