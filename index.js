@@ -38,9 +38,9 @@ if (process.env.NODE_ENV !== 'production') {
 mongoose.connect(
   `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.DB_STRING}`,
   {
-    useUnifiedTopology: true,
-    useCreateIndex: true,
     useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
   }
 );
 
