@@ -34,13 +34,11 @@ logger.info(`env varsss MONGO_URI ${process.env.MONGO_URI}`);
 logger.info(`env varsss NODE_PORT ${process.env.NODE_PORT}`);
 
 // Mongo Database connection
-// mongoose.connect(process.env.MONGO_URI, {
-//   useUnifiedTopology: true,
-//   useCreateIndex: true,
-//   useNewUrlParser: true,
-// });
-
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI, {
+  useUnifiedTopology: true,
+  // useCreateIndex: true,
+  useNewUrlParser: true,
+});
 
 const db = mongoose.connection;
 db.on('error', (err) => logger.error(`connection error: ${err.stack}`));
