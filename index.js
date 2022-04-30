@@ -30,6 +30,8 @@ if (process.env.NODE_ENV !== 'production') {
   );
 }
 
+logger.info(`env varsss ${process.env}`);
+
 // Mongo Database connection
 mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
