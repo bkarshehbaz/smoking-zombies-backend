@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 logger.info(`env varsss MONGO_URI ${process.env.MONGO_URI}`);
-logger.info(`env varsss NODE_PORT ${process.env.MONGONODE_PORT_URI}`);
+logger.info(`env varsss NODE_PORT ${process.env.NODE_PORT}`);
 
 // Mongo Database connection
 mongoose.connect(process.env.MONGO_URI, {
