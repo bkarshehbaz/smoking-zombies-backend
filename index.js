@@ -70,8 +70,8 @@ db.once('open', () => {
   });
 });
 
-const server = app.listen(process.env.NODE_PORT, () => {
-  logger.info(`server started on port ${process.env.NODE_PORT}`);
+const server = app.listen(process.env.PORT || 4000, () => {
+  logger.info(`server started on port ${process.env.PORT}`);
 });
 
 process.on('SIGINT', () => {
