@@ -30,14 +30,19 @@ if (process.env.NODE_ENV !== 'production') {
   );
 }
 
-logger.info(`env varsss MONGO_URI ${process.env.MONGO_URI}`);
-logger.info(`env varsss NODE_PORT ${process.env.NODE_PORT}`);
+// logger.info(`env varsss MONGO_URI ${process.env.MONGO_URI}`);
+// logger.info(`env varsss NODE_PORT ${process.env.NODE_PORT}`);
 
 // Mongo Database connection
-mongoose.connect(process.env.MONGO_URI, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
+// {`mongodb+srv://${USERNAME}:${PASSWORD}@${DB_STRING}`}
+mongoose.connect(
+  `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.DB_STRING}`,
+  {
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useNewUrlParser: true,
+  }
+);
 
 const db = mongoose.connection;
 db.on('error', (err) => logger.error(`connection error: ${err.stack}`));
