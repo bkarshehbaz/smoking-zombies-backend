@@ -36,7 +36,6 @@ logger.info(`env varsss NODE_PORT ${process.env.NODE_PORT}`);
 // Mongo Database connection
 mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
-  // useCreateIndex: true,
   useNewUrlParser: true,
 });
 
