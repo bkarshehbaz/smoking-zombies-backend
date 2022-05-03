@@ -70,7 +70,7 @@ db.once('open', () => {
   });
 });
 
-const server = app.listen(process.env.PORT || 4000, () => {
+const server = app.listen(process.env.PORT, () => {
   logger.info(`server started on port ${process.env.PORT}`);
 });
 
