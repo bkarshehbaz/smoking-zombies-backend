@@ -5,14 +5,15 @@ const { ValidateJWT } = require('../services/utils');
 const {
   getAllShopsData,
   createOneShop,
+  updateShopData,
 } = require('../controllers/shop.controller');
 
 router.get('/getAllShopsData', ValidateJWT, getAllShopsData);
 
 router.post('/createOneShop', ValidateJWT, createOneShop);
 
-router.get('/updateAShop', ValidateJWT, getAllShopsData);
+router.get('/updateOneShop', ValidateJWT, updateShopData);
 
-router.get('/deleteAShop', ValidateJWT, getAllShopsData);
+router.get('/deleteOneShop', ValidateJWT, getAllShopsData);
 
 module.exports = router;

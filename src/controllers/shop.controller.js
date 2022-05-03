@@ -82,3 +82,27 @@ async function fetchShopData(res) {
 module.exports.getAllShopDataViaThirdPartyAPI = async (req, res) => {
   fetchShopData(res);
 };
+
+async function updateShopData(req, res) {
+  logger.info(`Shop Data ${req.body}`);
+  // const filter = { name: req.body.name };
+  // const update = { name: req.body.name };
+
+  // const shop = new Shop(req.body);
+
+  // shop.save((er, new_shop) => {
+  //   if (er) {
+  //     logger.error(`DB Error: ${er.message}`);
+  //     res.status(500).json({
+  //       status: false,
+  //       message: 'error creating new shop',
+  //       error: er,
+  //     });
+  //   }
+  //   res.status(201).json({ status: true, new_shop });
+  // });
+}
+
+module.exports.updateOneShop = async (req, res) => {
+  updateShopData(req, res);
+};
