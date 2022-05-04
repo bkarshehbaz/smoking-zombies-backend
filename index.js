@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const cors = require('cors');
 
 // Modules
 const logger = require('./winston-config');
@@ -16,6 +17,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(helmet());
+app.use(cors({ credentials: true }));
 
 if (process.env.NODE_ENV !== 'production') {
   // app.use(morgan('dev'));
