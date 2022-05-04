@@ -71,6 +71,10 @@ module.exports.SignUp = (req, res) => {
 };
 
 module.exports.Login = (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.header('Access-Control-Allow-Headers', 'accept, content-type');
+  res.header('Access-Control-Max-Age', '1728000');
   User.findOneUser(req.body[User.UNIQUE_FIELD], (err, data) => {
     if (err) {
       logger.error(`DB Error: ${err.message}`);
