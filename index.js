@@ -25,7 +25,22 @@ app.use((req, res, next) => {
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+const whitelist = ['https://shisha-journey-frontend.herokuapp.com'];
+const corsOptions = {
+  origin(origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
+app.get('/', (req, res) => {
+  res.send({ message: 'zombieeesss' });
+});
 app.use(helmet());
 
 // Modules
