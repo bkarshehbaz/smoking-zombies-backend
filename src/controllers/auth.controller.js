@@ -84,7 +84,7 @@ module.exports.Login = (req, res) => {
       const match = bcrypt.compareSync(req.body.password, data.password);
 
       if (match) {
-        const expiry = '60m';
+        const expiry = '7d';
         const token = JWT.sign({ data: data.id }, process.env.JWT_SECRET, {
           expiresIn: expiry,
         });
