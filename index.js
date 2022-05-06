@@ -4,10 +4,6 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require('cors');
 
-// Modules
-const logger = require('./winston-config');
-const routes = require('./src/routes');
-
 require('dotenv').config();
 
 // create express app
@@ -31,6 +27,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
+
+// Modules
+const logger = require('./winston-config');
+const routes = require('./src/routes');
 
 if (process.env.NODE_ENV !== 'production') {
   // app.use(morgan('dev'));
