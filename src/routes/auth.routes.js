@@ -110,6 +110,7 @@ router.post(
             return res
               .status(200)
               .json({ msg: 'Password has been reset and sent to email' });
+            console.log(response[0]);
             console.log(response[0].statusCode);
             console.log(response[0].headers);
           })
