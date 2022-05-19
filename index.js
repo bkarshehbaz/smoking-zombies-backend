@@ -8,11 +8,11 @@ require('dotenv').config();
 
 // create express app
 const app = express();
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+app.use(cors());
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -28,12 +28,11 @@ app.use(express.json());
 //   },
 //   credentials: true,
 // };
-// app.use(cors());
 
 app.get('/', (req, res) => {
   res.send({ message: 'zombieeesss' });
 });
-app.use(helmet());
+// app.use(helmet());
 
 // Modules
 const logger = require('./winston-config');
@@ -58,7 +57,9 @@ if (process.env.NODE_ENV !== 'production') {
 // Mongo Database connection
 // {`mongodb+srv://${USERNAME}:${PASSWORD}@${DB_STRING}`}
 mongoose.connect(
-  `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.DB_STRING}`,
+  // 'mongodb://localhost:27017/QR',
+  'mongodb+srv://bkar:nh2conh2cuso4@cluster0.d8sxr.mongodb.net/QR',
+  // `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.DB_STRING}`,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -74,11 +75,11 @@ db.once('open', () => {
 
   app.use('/api', routes);
 
-  app.use((req, res, next) => {
-    const error = new Error('Not found');
-    error.status = 404;
-    next(error);
-  });
+  // app.use((req, res, next) => {
+  //   const error = new Error('Not found');
+  //   error.status = 404;
+  //   next(error);
+  // });
 
   // error handler middleware
   app.use((error, req, res, next) => {
